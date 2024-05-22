@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.3.1/jquery.ui.touch-punch.min.js"></script>
+    <script>
+       $(document).ready(function() {
+           $("#options").selectable();
+           $(".container").draggable();
+           $("#name").resizable();
+           $("#contactForm").draggable();
+           $("#sortable").sortable();
+           $("#draggable").draggable();
+           $("#droppable").droppable({
+             drop: function(event, ui) {
+               $(this).addClass("ui-state-highlight").find("p").html("Dropped!");
+             }
+           });
+
+           // Handle form submission
+           $("#submitBtn").click(function(event) {
+               event.preventDefault(); // Prevent default form submission
+
+               // Get form data
+               var name = $("#name").val();
+               var email = $("#email").val();
+               var state = $("#options .ui-selected").text(); // Get selected state
+               var message = $("#message").val();
+
+               // Add data to table
+               $("#dataTable tbody").append("<tr><td>" + name + "</td><td>" + email + "</td><td>" + state + "</td><td>" + message + "</td></tr>");
+
+               // Reset form
+               $("#contactForm")[0].reset();
+           });
+       });
+    </script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Contact Form</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+         <!-- Selectable options -->
+        <label for="options">States are Selectable:</label>
+        <ul id="options">
+            <li class="ui-widget-content">Odisha</li>
+            <li class="ui-widget-content">Maharastra</li>
+            <li class="ui-widget-content">Gujurat</li>
+            <li class="ui-widget-content">Telegana</li>
+            <li class="ui-widget-content">Andrapradesh</li>
+        </ul>
+        <label for="options">Hobbies are Selectable:</label>     
+        <ul id="sortable">
+            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Playing Cricket</li>
+            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Reading Novel</li>
+            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Reading Journal</li>
+            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Cooking</li>
+            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Swimming</li>
+            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Playing VolleyBall</li>
+            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Playing FootBall</li>
+        </ul>
+        <div id="draggable" class="ui-widget-content">
+            <p>Drag</p>
+        </div>
+        <div id="droppable" class="ui-widget-header">
+            <p>Drop here</p>
+            <input type="text" id="dropped" name="drop">
+        </div>
+        <button id="submitBtn" type="button">Submit</button>
+    </div>
+
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>State</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be inserted here dynamically -->
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+@charset "ISO-8859-1";
+body {
+    font-family: Arial, sans-serif;
+    background-color: #87d28a;
+
+  }
+  
+  .container {
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 30px;
+    border: 2px solid #56e9c7;
+    border-radius: 5px;
+    opacity: 5;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  label, input, textarea, button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 2px;
+  }
+  
+  textarea {
+    resize: vertical;
+    border-radius: 3px;
+  }
+  
+  button {
+    background-color: #0000ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  button:hover {
+    background-color: #0080ff;
+  }
+  
+  /* Style for selectable options */
+        #options {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #options li {
+            margin: 3px;
+            padding: 0.4em;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        
+        #options .ui-selecting {
+            background: #FECA40;
+        }
+        
+        #options .ui-selected {
+            background: #F39814;
+            color: white;
+        }
+        
+         #sortable {
+          list-style-type: none; margin: 0; padding: 0; width: 60%; 
+          }
+  #sortable li {
+   margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; 
+   }
+  #sortable li span {
+   position: absolute; margin-left: -1.3em;
+    }
+ #resizable {
+  width: 150px; height: 150px; padding: 0.5em; 
+  }
+  #resizable h3 { 
+  text-align: center; margin: 0; 
+  }
+  
+  
+  #draggable { 
+  width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0;
+   }
+  #droppable { 
+  width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; 
+  }
+  
+  
